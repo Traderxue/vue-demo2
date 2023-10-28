@@ -2,29 +2,29 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
-const router = useRouter()
+const router = useRouter();
 
-const active = ref("涨幅榜")
+const active = ref("涨幅榜");
 
 const navData = ref([
   {
-    title:"涨幅榜",
-    path:"/up"
+    title: "涨幅榜",
+    path: "/up",
   },
   {
-    title:"成交额榜",
-    path:"/deal"
+    title: "成交额榜",
+    path: "/deal",
   },
   {
-    title:"新币榜",
-    path:"/newcoin"
+    title: "新币榜",
+    path: "/newcoin",
   },
-])
+]);
 
-const goTab = (item) =>{
-  active.value = item.title
-  router.push(item.path)
-}
+const goTab = (item) => {
+  active.value = item.title;
+  router.push(item.path);
+};
 </script>
 
 <template>
@@ -33,7 +33,8 @@ const goTab = (item) =>{
       <span class="material-symbols-outlined header_left">
         account_circle
       </span>
-      <span>首页</span>
+      <span>{{$t('home.title')}}</span>
+      <span class="material-symbols-outlined"> language </span>
     </div>
     <div class="banner">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
@@ -95,7 +96,13 @@ const goTab = (item) =>{
     </div>
     <div class="nav">
       <div class="top">
-        <span v-for="(item,index) in navData" :key="index" :class="item.title==active?'active':''" @click="goTab(item)">{{item.title}}</span>
+        <span
+          v-for="(item, index) in navData"
+          :key="index"
+          :class="item.title == active ? 'active' : ''"
+          @click="goTab(item)"
+          >{{ item.title }}</span
+        >
       </div>
       <div class="box">
         <div class="box_top">
@@ -103,7 +110,7 @@ const goTab = (item) =>{
           <span>最新价</span>
           <span>涨跌幅</span>
         </div>
-        <RouterView/>
+        <RouterView />
       </div>
     </div>
   </div>
@@ -120,14 +127,10 @@ const goTab = (item) =>{
     height: 25px;
     text-align: center;
     line-height: 25px;
-    position: relative;
     font-size: 15px;
-    .header_left {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .banner {
     width: auto;
@@ -160,11 +163,11 @@ const goTab = (item) =>{
         color: #555;
       }
       .span2 {
-        color: #FF5F56;
+        color: #ff5f56;
         font-size: 17px;
       }
       .span3 {
-        color: #FF5F56;
+        color: #ff5f56;
         font-size: 12px;
       }
       .span4 {
@@ -246,22 +249,22 @@ const goTab = (item) =>{
       font-weight: 600;
       font-size: 14px;
       color: #333;
-      .active{
-        color: #1A73E8;
+      .active {
+        color: #1a73e8;
       }
     }
-    .box{
+    .box {
       display: flex;
       justify-content: space-around;
       flex-direction: column;
-      .box_top{
+      .box_top {
         color: #666;
         display: flex;
         justify-content: space-between;
         margin-top: 15px;
         font-size: 14px;
       }
-      .box_main{
+      .box_main {
         color: #000;
         display: flex;
         justify-content: space-between;
@@ -269,38 +272,37 @@ const goTab = (item) =>{
         font-weight: 600;
         color: #333;
         margin: 5px 0px;
-        span{
+        span {
           width: 33%;
-
         }
-        p{
+        p {
           display: inline-block;
           color: #888;
         }
-        .mid{
+        .mid {
           text-align: left;
         }
-        .right{
+        .right {
           text-align: right;
           width: 70px;
           height: 35px;
-          background: #FF5F56;
+          background: #ff5f56;
           text-align: center;
           line-height: 35px;
-          color: #FFF;
+          color: #fff;
           font-size: 13px;
         }
-        .down{
-          color: #FF5F56;
+        .down {
+          color: #ff5f56;
         }
-        .up{
-          color: #1CAD90;
+        .up {
+          color: #1cad90;
         }
-        .down_price{
-          background: #FF5F56;
+        .down_price {
+          background: #ff5f56;
         }
-        .up_price{
-          background: #1CAD90;
+        .up_price {
+          background: #1cad90;
         }
       }
     }
