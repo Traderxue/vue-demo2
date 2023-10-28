@@ -10,6 +10,24 @@ const router = createRouter({
       {
         path:"",
         component:()=>import("@/views/Home/home.vue"),
+        children:[
+          {
+            path:'',
+            component:()=>import("@/views/Home/components/zf.vue")
+          },
+          {
+            path:'/up',
+            component:()=>import("@/views/Home/components/zf.vue")
+          },
+          {
+            path:'/deal',
+            component:()=>import("@/views/Home/components/cj.vue")
+          },
+          {
+            path:'/newcoin',
+            component:()=>import("@/views/Home/components/xb.vue")
+          },
+        ]
       },
       {
         path:"/home",

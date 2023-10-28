@@ -1,3 +1,3 @@
 <template>
-    <div>contract</div>
+    <div>合约页</div>
 </template>

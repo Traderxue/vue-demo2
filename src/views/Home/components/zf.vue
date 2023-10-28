@@ -1,5 +1,12 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter()
+
+const goTrade = () =>{
+  router.push("/trade")
+}
 
 const boxData = ref([
   {
@@ -43,7 +50,7 @@ const boxData = ref([
 
 <template>
   <div class="zf">
-    <div class="box_main" v-for="(item, index) in boxData" :key="index">
+    <div class="box_main" v-for="(item, index) in boxData" :key="index" @click="goTrade">
       <span
         >{{ item.type }}
         <p>/USDT</p></span

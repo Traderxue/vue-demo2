@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "klinecharts": "^9.5.4",
     "pinia": "^2.1.7",
     "sass": "^1.69.5",
     "vant": "^4.7.2",
