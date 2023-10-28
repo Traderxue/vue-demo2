@@ -1,14 +1,24 @@
 <script setup>
 import { ref } from "vue";
+import {showToast} from "vant"
 
+const loading = ref(false);
+    const onRefresh = () => {
+      setTimeout(() => {
+        showToast('刷新成功');
+        loading.value = false;
+      }, 1000);
+    }
 const active = ref(0);
 </script>
 
 <template>
   <div class="index">
-    <RouterView />
+    <van-pull-refresh v-model="loading" @refresh="onRefresh">
+      <RouterView />
+    </van-pull-refresh>
     <van-tabbar v-model="active" route>
-      <van-tabbar-item  to="/home"> 
+      <van-tabbar-item to="/home">
         <span class="material-symbols-outlined"> home </span><br />
         <span>首页</span>
       </van-tabbar-item>
@@ -16,7 +26,7 @@ const active = ref(0);
         <span class="material-symbols-outlined"> monitoring </span><br />
         <span>行情</span>
       </van-tabbar-item>
-      <van-tabbar-item  to="/trade">
+      <van-tabbar-item to="/trade">
         <span class="material-symbols-outlined"> stacked_line_chart </span>
         <br />
         <span>交易</span>
@@ -35,11 +45,14 @@ const active = ref(0);
 </template>
 
 <style lang="scss" scoped>
-.index{
-    width: auto;
-    height: auto;
-    .van-tabbar{
-        background: #F5F5F5;
+.index {
+  width: auto;
+  height: auto;
+  .van-tabbar {
+    background: #f5f5f5;
+    .van-tabbar-item {
+      background: #f5f5f5;
     }
+  }
 }
 </style>

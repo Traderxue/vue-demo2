@@ -3,12 +3,6 @@ import { ref } from "vue";
 
 const boxData = ref([
   {
-    type: "BTC",
-    price: "29453.2",
-    parcent: "+1.25%",
-    up: 1,
-  },
-  {
     type: "ETH",
     price: "1782.3",
     parcent: "+2.21%",
@@ -24,57 +18,19 @@ const boxData = ref([
     type: "BTC",
     price: "29453.2",
     parcent: "+1.25%",
-    up: 1,
+    up: 0,
   },
   {
     type: "ETH",
     price: "1782.3",
     parcent: "+2.21%",
-    up: 1,
-  },
-  {
-    type: "APE",
-    price: "1.231",
-    parcent: "-0.21%",
     up: 0,
-  },
-  {
-    type: "BTC",
-    price: "29453.2",
-    parcent: "+1.25%",
-    up: 1,
-  },
-  {
-    type: "ETH",
-    price: "1782.3",
-    parcent: "+2.21%",
-    up: 1,
-  },
-  {
-    type: "APE",
-    price: "1.231",
-    parcent: "-0.21%",
-    up: 0,
-  },
-  {
-    type: "BTC",
-    price: "29453.2",
-    parcent: "+1.25%",
-    up: 1,
-  },
+  }
 ]);
 </script>
 
 <template>
   <div class="zf">
-    <div class="header">
-        <span>行情</span>
-    </div>
-    <div class="box_top">
-          <span>名称</span>
-          <span>最新价</span>
-          <span>涨跌幅</span>
-        </div>
     <div class="box_main" v-for="(item, index) in boxData" :key="index">
       <span
         >{{ item.type }}
@@ -131,23 +87,5 @@ const boxData = ref([
   .up_price {
     background: #1cad90;
   }
-}
-.zf{
-    width: auto;
-    height: auto;
-    padding: 15px;
-    padding-bottom: 70px;
-    .header{
-        text-align: center;
-        line-height: 25px;
-        font-size: 15px;
-    }
-    .box_top{
-        color: #666;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 15px;
-        font-size: 14px;
-      }
 }
 </style>
