@@ -383,12 +383,13 @@ const goContract = () => {
       border: 0;
       color: #fff;
       border-radius: 2px;
+      font-size: 15px;
     }
     .buy {
       background: #02c289;
     }
     .sell {
-      background: #cd4e65;
+      background: #ff5f56;
     }
   }
 }
